@@ -1,4 +1,4 @@
-import {executeSql} from '../database/database';
+import {executeSql} from '../services/database';
 
 export async function migrateAddStatus() {
     const info = await executeSql("PRAGMA table_info(tasks);");
