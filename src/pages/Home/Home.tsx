@@ -32,14 +32,18 @@ export default function Home() {
         <View style={styles.container}>
             <View style={styles.header}>
                 <Text style={styles.title}>Task Manager</Text>
+            </View>
+
+            <View style={styles.mainContent}>
+                <Text style={styles.syncText}>
+                    Last sync: {lastSync?.toLocaleString() ?? "Never"}
+                </Text>
+
                 <TouchableOpacity style={styles.reloadBtn} onPress={handleReload}>
                     <Text style={styles.reloadText}>Reload</Text>
                 </TouchableOpacity>
             </View>
 
-            <Text style={styles.syncText}>
-                Last sync: {lastSync?.toLocaleString() ?? "Never"}
-            </Text>
 
             <TaskList />
 
@@ -69,9 +73,17 @@ const styles = StyleSheet.create ({
     },
     header: {
         flexDirection: "row",
-        justifyContent: "space-between",
+        justifyContent: "center",
         alignItems: "center",
-        padding: 16,
+        paddingTop: 80,
+        paddingBottom: 30,
+    },
+    mainContent: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        alignItems: "flex-end",
+        paddingRight: 10,
+        paddingBottom: 10,
     },
     title: {
         fontSize: 24,
@@ -95,7 +107,9 @@ const styles = StyleSheet.create ({
     footer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        padding: 16,
+        paddingLeft: 20,
+        paddingRight: 20,
+        paddingBottom: 30,
     },
     addBtn: {
         flex: 1,
